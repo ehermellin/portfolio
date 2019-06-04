@@ -693,33 +693,6 @@ jQuery(document).ready(function(){
         jQuery('.pm_coming_soon_container').height(site_height);
     }
 
-    // Ken Burns Album
-    var slider_container = jQuery('#kenburns');
-
-    if (slider_container.length) {
-        slider_container.attr({'width': site_width, 'height': site_height});
-
-        slider_container.kenburns({
-            images: [
-                'img/clipart/gallery-1920-04.jpg',
-                'img/clipart/gallery-1920-02.jpg',
-                'img/clipart/gallery-1920-03.jpg',
-                'img/clipart/gallery-1920-01.jpg',
-                'img/clipart/gallery-1920-05.jpg',
-                'img/clipart/gallery-1920-06.jpg',
-                'img/clipart/gallery-1920-07.jpg',
-                'img/clipart/gallery-1920-08.jpg',
-                'img/clipart/gallery-1920-12.jpg',
-                'img/clipart/gallery-1920-15.jpg'
-            ],
-            frames_per_second: 30,
-            display_time: 5000,
-            fade_time: 1000,
-            zoom: 1.2,
-            background_color:'#000000'
-        });
-    }
-
     // Custom Scroll Activation
     var scroll_cont = jQuery('.pm_scroll_container'),
         desc_scroll_cont = jQuery('.pm_slider_description_cont');
@@ -778,7 +751,7 @@ jQuery(document).ready(function(){
 
 
     if (site_width < 1025) {
-        jQuery('.pm_albums_tape_container, .pm_album_fullscreen, .pm_album_kenburns, .pm_album_descriptions, .pm_album_portrait, .pm_album_tape, .pm_album_stripes, .pm_album_scattered, .pm_album_waterwheel, .pm_album_video, .pm_blog_listing_tape_container').parent().find('.pm_menu_mobile_container_wrapper').css('padding-top', header_height);
+        jQuery('.pm_albums_tape_container, .pm_album_fullscreen, .pm_album_descriptions, .pm_album_portrait, .pm_album_tape, .pm_album_stripes, .pm_album_scattered, .pm_album_waterwheel, .pm_album_video, .pm_blog_listing_tape_container').parent().find('.pm_menu_mobile_container_wrapper').css('padding-top', header_height);
 
         var menu_mobile = jQuery('.pm_innerpadding_menu .pm_menu_cont').find('ul.menu').detach();
 
@@ -1659,10 +1632,6 @@ jQuery(window).resize(function(){
     if (site_width > 737) {
         jQuery('.pm_coming_soon_container').height(site_height);
     }
-
-    // Ken Burns Album Reload
-    jQuery("#kenburns").remove();
-    setTimeout(travis_kenburns_resize, 200);
 
     // Album Description Reload
     jQuery('.album_description_page').each(function(){
@@ -4011,31 +3980,3 @@ function blog_listing_post_format_image_slider(i) {
 /////////////////////////////////////////////////
 //// End of Blog Listing Carousel Tape Setup ////
 /////////////////////////////////////////////////
-
-function travis_kenburns_resize() {
-    var site_width = jQuery(window).width(),
-        site_height = jQuery(window).height();
-
-    jQuery(".pm_gallery_kenburns").append("<canvas id='kenburns'><p>Your browser doesn't support canvas!</p></canvas>");
-
-    jQuery("#kenburns").attr({"width": site_width, "height": site_height});
-    jQuery("#kenburns").kenburns({
-        images: [
-            'img/clipart/gallery-1920-04.jpg',
-            'img/clipart/gallery-1920-02.jpg',
-            'img/clipart/gallery-1920-03.jpg',
-            'img/clipart/gallery-1920-01.jpg',
-            'img/clipart/gallery-1920-05.jpg',
-            'img/clipart/gallery-1920-06.jpg',
-            'img/clipart/gallery-1920-07.jpg',
-            'img/clipart/gallery-1920-08.jpg',
-            'img/clipart/gallery-1920-12.jpg',
-            'img/clipart/gallery-1920-15.jpg'
-        ],
-        frames_per_second: 30,
-        display_time: 5000,
-        fade_time: 1000,
-        zoom: 1.2,
-        background_color:'#000000'
-    });
-}
